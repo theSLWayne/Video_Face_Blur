@@ -42,8 +42,18 @@ def strToBool(value):
     else:
         raise argparse.ArgumentTypeError('Unsupported value encountered for --show_frames.')
 
-def validateArgs():
-    pass
+def validateArgs(args):
+    """
+    Validate script arguments
+
+    :param args: Arguments
+    :return:
+    """
+    assert os.path.exists(args.video_path), f'The specified video file path "{args.video_path}" does not exist.'
+
+    if args.output_directory and not os.path.isdir(args.output_directory):
+        logger.info(f'Directory represented by the output path does not exist. The mentioned path will be created.')
+
 
 def createVideo():
     pass
@@ -57,3 +67,7 @@ def blurVideoFaces():
 if __name__ == '__main__':
 
     args = initArgs()
+
+    validateArgs(args)
+
+    
