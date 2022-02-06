@@ -14,14 +14,15 @@ def printProgressBar (iteration, total, prefix = 'Progress', suffix = 'Complete'
     Thanks to Greenstick & Diogo of Stackoverflow (https://stackoverflow.com/a/34325723/2817832) for the function. 
 
     @params:
-        iteration   - Required  : current iteration (Int)
-        total       - Required  : total iterations (Int)
-        prefix      - Optional  : prefix string (Str)
-        suffix      - Optional  : suffix string (Str)
-        decimals    - Optional  : positive number of decimals in percent complete (Int)
-        length      - Optional  : character length of bar (Int)
-        fill        - Optional  : bar fill character (Str)
-        printEnd    - Optional  : end character (e.g. "\r", "\r\n") (Str)
+    :param iteration : current iteration (Int)
+    :param total     : total iterations (Int)
+    :param prefix    : prefix string (Str)
+    :param suffix    : suffix string (Str)
+    :param decimals  : positive number of decimals in percent complete (Int)
+    :param length    : character length of bar (Int)
+    :param fill      : bar fill character (Str)
+    :param printEnd  : end character (e.g. "\r", "\r\n") (Str)
+    :return:
     """
     percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
     filledLength = int(length * iteration // total)
@@ -40,4 +41,5 @@ def convertToRGB(img):
     """
 
     return cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
 
