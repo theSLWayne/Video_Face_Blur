@@ -1,3 +1,3 @@
-from process_video import blurredFrames as blurredFrames
-from video_data_extractor import extractAudio as extractAudio
-from video_data_extractor import extractMetaData as extractMetaData
+from tools.process_video import blurredFrames as blurredFrames
+from tools.video_data_extractor import extractAudio as extractAudio
+from tools.video_data_extractor import extractMetaData as extractMetaData
