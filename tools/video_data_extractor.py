@@ -19,6 +19,12 @@ def extractAudio(vid_path):
     return clip.audio # Extracted audio
 
 def extractMetaData(vid_path):
+    """
+    Extract total frame count and fps from input video
+
+    :param vid_path: Path to input video
+    :return: (number of total frames, fps)
+    """
 
     # Read video frame-by-frame
     clip = cv2.VideoCapture(vid_path)
