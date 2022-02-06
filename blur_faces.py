@@ -5,9 +5,12 @@ Entrypoint for face blurring process
 import argparse
 import glog as logger
 import os
+from pathlib import Path
 from moviepy.video.io.ImageSequenceClip import ImageSequenceClip
 
 from tools import blurredFrames, extractAudio, extractMetaData
+
+DEFAULT_SAVE_DIR = './outputs/'
 
 def initArgs():
     """
@@ -54,10 +57,30 @@ def validateArgs(args):
     assert os.path.exists(args.video_path), f'The specified video file path "{args.video_path}" does not exist.'
 
     if args.output_directory and not os.path.isdir(args.output_directory):
-        logger.info(f'Directory represented by the output path does not exist. The mentioned path will be created.')
+        logger.warning(f'''The specified output directory path does not exist. 
+            Video will be saved in the default location {DEFAULT_SAVE_DIR}.''')
 
-def getFileName():
-    pass
+def getFileName(video_path, save_path):
+    """
+    Get new video file path
+
+    :param video_path: Path of the original video
+    :param save_path: Path of the directory that blurred video should be saved to
+    :return: File path for blurred video
+    """
+
+    save_path = save_path if save_path else DEFAULT_SAVE_DIR
+
+    video_path = Path(video_path)
+
+    if not os.path.exists(save_path):
+        path = Path(save_path)
+        path.mkdir(parents=True, exist_ok=True)
+
+    new_file_name = f'{video_path.stem}_blurred{video_path.suffix}'
+
+    return os.path.join(save_path, new_file_name)
+
 
 if __name__ == '__main__':
 
@@ -68,10 +91,10 @@ if __name__ == '__main__':
     total_frames, fps = extractMetaData(vid_path=args.video_path)
     logger.info(f'{total_frames} frames detected at {fps} fps.')
 
-    logger.info('Applying the blurring effect...')
+    logger.info("Applying the blurring effect... Press 'q' to stop the process")
     blurred_frames = blurredFrames(vid_path=args.video_path,
                                     frame_count=total_frames,
-                                    show=args)
+                                    show=args.show_frames)
 
     logger.info('Extracting audio...')
     audio = extractAudio(vid_path=args.video_path)
@@ -80,5 +103,8 @@ if __name__ == '__main__':
     final_video = ImageSequenceClip(sequence=blurred_frames, fps=fps)
     final_video.audio = audio
 
-    file_name = getFileName()
+    file_name = getFileName(video_path=args.video_path,
+                            save_path=args.output_directory)
+
+    final_video.write_videofile(file_name)
 
