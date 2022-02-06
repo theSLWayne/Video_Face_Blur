@@ -5,9 +5,9 @@ Entrypoint for face blurring process
 import argparse
 import glog as logger
 import os
+from moviepy.video.io.ImageSequenceClip import ImageSequenceClip
 
 from tools import blurredFrames, extractAudio, extractMetaData
-from moviepy.video.io import ImageSequenceClip
 
 def initArgs():
     """
@@ -26,6 +26,8 @@ def initArgs():
     parser.add_argument('-s', '--show_frames', type=strToBool,
                         help='Whether to show frames as they are processed or not (y/n)',
                         default=False)
+
+    return parser.parse_args()
 
 def strToBool(value):
     """
@@ -54,14 +56,7 @@ def validateArgs(args):
     if args.output_directory and not os.path.isdir(args.output_directory):
         logger.info(f'Directory represented by the output path does not exist. The mentioned path will be created.')
 
-
-def createVideo():
-    pass
-
 def getFileName():
-    pass
-
-def blurVideoFaces():
     pass
 
 if __name__ == '__main__':
@@ -70,4 +65,20 @@ if __name__ == '__main__':
 
     validateArgs(args)
 
-    
+    total_frames, fps = extractMetaData(vid_path=args.video_path)
+    logger.info(f'{total_frames} frames detected at {fps} fps.')
+
+    logger.info('Applying the blurring effect...')
+    blurred_frames = blurredFrames(vid_path=args.video_path,
+                                    frame_count=total_frames,
+                                    show=args)
+
+    logger.info('Extracting audio...')
+    audio = extractAudio(vid_path=args.video_path)
+
+    logger.info('Creating video...')
+    final_video = ImageSequenceClip(sequence=blurred_frames, fps=fps)
+    final_video.audio = audio
+
+    file_name = getFileName()
+
