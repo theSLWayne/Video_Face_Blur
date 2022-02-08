@@ -23,7 +23,42 @@ This project aims to:
 
 ## 2. Setup
 
-Setup to run the scripts
+The requirements have to be installed in order to run scripts on a local computer. It is recommended to create a Python virtual environment to run the scripts of this repository and to keep track of requirements.
+
+First, clone this repository to the computer.
+
+```
+git clone https://github.com/theSLWayne/Video_Face_Blur.git
+```
+
+Then, create a Python virtual environment.
+
+```
+python -m venv facial_blur
+```
+
+Activate the created virtual environment.
+
+- For linux:
+    ```
+    source facial_blur/bin/activate
+    ```
+
+- For Windows:
+    ```
+    facial_blur\Source\activate
+    ```
+
+Install dependencies to the virtual environment.
+
+```
+pip install -r requirements.txt
+```
+
+After everything is installed, all scripts of the repository can be run inside the virtual environment.
+
+In order to deactivate the virtual environment, simply use `deactivate` command.
+
 
 ## 3. How to Run
 
