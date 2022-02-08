@@ -13,7 +13,13 @@ An approach to blur faces in videos using Deep Learning.
 
 ## 1. Introduction
 
-This is the introduction.
+It is a common practice for faces of people to be blurred in videos to preserve privacy of individuals. There exists a plethora of software that can be used to blur human faces in a video file. This project is an attempt to blur faces using Deep Learning techniques.  
+
+This project aims to:  
+
+- Detect and blur faces that appear in videos with minimum manual effort.
+
+- Let users to choose specific faces to be blurred using face recognition techniques [Work In Progress!!]
 
 ## 2. Setup
 
