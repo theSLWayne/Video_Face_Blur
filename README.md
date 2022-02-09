@@ -20,7 +20,7 @@ This project aims to:
 
 - Let users to choose specific faces to be blurred using face recognition techniques [Work In Progress!!]
 
-Below is a demonstration of how this project works. Left side is the input video (of Sebastian Vettel, from [Formula 1 Official Youtube Channel](https://www.youtube.com/c/F1)) and the right side is the output taken from the face blurring script.
+Below is a demonstration of how this project works. Left side is the input video (of Sebastian Vettel, from [Formula 1 Official YouTube Channel](https://www.youtube.com/c/F1)) and the right side is the output taken from the face blurring script.
 
 ![GIF Failed to load](./docs/gifs/example.gif)
 
@@ -42,7 +42,7 @@ python -m venv facial_blur
 
 Activate the created virtual environment.
 
-- For linux:
+- For Linux:
     ```
     source facial_blur/bin/activate
     ```
@@ -64,7 +64,7 @@ In order to deactivate the virtual environment, simply use `deactivate` command.
 
 ## 3. How to Run
 
-`blur_faces.py` can be used to blur faces in a video. The syntax as belows:
+`blur_faces.py` can be used to blur faces in a video. The syntax as below:
 
 ```
 python blur_faces.py --video_path path/to/the/video/file
@@ -92,7 +92,7 @@ The workflow of face blurring can be broken down to a few key steps. Below is a 
 
 - Each frame is sent through the OpenCV face detection model to identify faces.
 
-- If there are faces identified, they are blurred using Gaussian Blurring and then the frame is appended to a separate frames list. If no faces were deteted in a frame, it is appended to the frames list without further processing.
+- If there are faces identified, they are blurred using Gaussian Blurring and then the frame is appended to a separate frames list. If no faces were detected in a frame, it is appended to the frames list without further processing.
 
 - Updated frames list is converted into a video using the FPS count of the original video.
 
@@ -102,7 +102,7 @@ The workflow of face blurring can be broken down to a few key steps. Below is a 
 
 ## 5. Contributions
 
-Feel free to contribute to the project. Here are some of the suggested imporvements:
+Feel free to contribute to the project. Here are some of the suggested improvements:
 
 - Improve the face detection model to detect side faces.
 
