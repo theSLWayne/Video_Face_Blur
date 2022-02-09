@@ -23,7 +23,7 @@ This project aims to:
 
 Below is a demonstration of how this project works. Left side is the input video (of Sebastian Vettel, from [Formula 1 Official Youtube Channel](https://www.youtube.com/c/F1)) and the right side is the output taken from the face blurring script.
 
-![GIF Failed to load](./docs/images/example.gif)
+![GIF Failed to load](./docs/gifs/example.gif)
 
 ## 2. Setup
 
@@ -85,7 +85,21 @@ python blur_faces.py --video_path path/to/the/video/file
 
 ## 4. How does it work?
 
-Procedure of blurring faces on videos
+The workflow of face blurring can be broken down to a few key steps. Below is a higher level overview of the workflow.
+
+![Image could not be loaded](./docs/images/workflow.png)
+
+- Audio, FPS (frames per second), and the list of frames are extracted from the input video.
+
+- Each frame is sent through the OpenCV face detection model to identify faces.
+
+- If there are faces identified, they are blurred using Gaussian Blurring and then the frame is appended to a separate frames list. If no faces were deteted in a frame, it is appended to the frames list without further processing.
+
+- Updated frames list is converted into a video using the FPS count of the original video.
+
+- Audio extracted from the original video is added to the video created using updated frames.
+
+- Final video is written into the output directory.
 
 ## 5. Files & Folders
 
