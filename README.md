@@ -8,8 +8,7 @@ An approach to blur faces in videos using Deep Learning.
 2. [Setup](#2-setup)
 3. [How to Run](#3-how-to-run)
 4. [How Does It Work?](#4-how-does-it-work)
-5. [Files & Folders](#5-files--folders)
-6. [Dependencies](#6-dependencies)
+5. [Contributions](#5-contributions)
 
 ## 1. Introduction
 
@@ -101,12 +100,12 @@ The workflow of face blurring can be broken down to a few key steps. Below is a 
 
 - Final video is written into the output directory.
 
-## 5. Files & Folders
+## 5. Contributions
 
-Description of files and folders included in the repository.
+Feel free to contribute to the project. Here are some of the suggested imporvements:
 
-## 6. Dependencies
+- Improve the face detection model to detect side faces.
 
-Main dependencies list
+- Add face recognition to let users select faces that should be blurred in a video.
 
 [↑ Top](#table-of-contents)
