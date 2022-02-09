@@ -59,10 +59,25 @@ After everything is installed, all scripts of the repository can be run inside t
 
 In order to deactivate the virtual environment, simply use `deactivate` command.
 
-
 ## 3. How to Run
 
-Instructions to run the scripts
+`blur_faces.py` can be used to blur faces in a video. The syntax as belows:
+
+```
+python blur_faces.py --video_path path/to/the/video/file
+        --output_directory folder/path/to/save/output/video
+        --show_frames y
+```
+
+### Arguments
+
+| Argument | Description | Notes |
+|----------|-------------|-------|
+| `--video_path` / `-p` | Path of the input video | Must be a valid path for a video file. |
+| `--output_directory` / `-od` | Path of the folder where the output video should be saved to | **Not mandatory**. The video will be saved to `./outputs` folder when no output path is provided. |
+| `--show_frames` / `-s` | Whether to display frames as they are processed | **Not Mandatory**. Defaulted to False. |
+
+- If the provided output path does not exist, the output video will be saved to the default location (`./outputs`).
 
 ## 4. How does it work?
 
