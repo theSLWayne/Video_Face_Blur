@@ -21,7 +21,7 @@ This project aims to:
 
 - Let users to choose specific faces to be blurred using face recognition techniques [Work In Progress!!]
 
-Below is a demonstration of how this project works. Left side is the input video and the right side is the output taken from the face blurring script.
+Below is a demonstration of how this project works. Left side is the input video (of Sebastian Vettel, from [Formula 1 Official Youtube Channel](https://www.youtube.com/c/F1)) and the right side is the output taken from the face blurring script.
 
 ![GIF Failed to load](./docs/images/example.gif)
 
