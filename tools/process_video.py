@@ -69,7 +69,7 @@ def blurredFrames(vid_path, frame_count, show=False):
         gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
         # Haar Cascade model to detect faces
-        haar_face_casscade = cv2.CascadeClassifier('cascade_files/haarcascade_frontalface_alt.xml')
+        haar_face_casscade = cv2.CascadeClassifier('cascade_files/haarcascade_frontalface2.xml')
 
         # Detect faces
         faces = haar_face_casscade.detectMultiScale(gray_frame, scaleFactor=1.1, minNeighbors=4)
